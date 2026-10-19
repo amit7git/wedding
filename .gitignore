@@ -1,0 +1,18 @@
+# Dependencies / build
+node_modules/
+.npm/
+
+# Vercel
+.vercel/
+
+# Environment (none used today — listed so future secrets are never committed)
+.env
+.env.*
+*.local
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+Thumbs.db
+.DS_Store
+Desktop.ini
