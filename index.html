@@ -176,9 +176,6 @@ body{font-size:1.06rem;font-weight:500}
 /* v5: colourful LEDs */
 :root{--pw:clamp(18px,5vw,54px)}
 .lt{background:none!important;animation:none!important;display:flex;justify-content:space-between;align-items:center;padding:0 6px}
-.lv{position:fixed;top:0;bottom:0;width:9px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:2px 0;z-index:4;pointer-events:none}
-.lv.l{left:calc(var(--pw) - 4px)}.lv.r{right:calc(var(--pw) - 4px)}
-.lv.l2{left:3px}.lv.r2{right:3px}
 .led{display:block;flex:none;width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 6px 2px var(--c),inset 0 0 0 1px #fff7;animation:ledt 2s ease-in-out infinite}
 @keyframes ledt{0%,100%{opacity:.3}50%{opacity:1}}
 body:not(.opened) .ledset{opacity:0;visibility:hidden}.ledset{transition:opacity 1.4s ease}
@@ -199,14 +196,17 @@ main > .card:first-child{padding-top:clamp(40px,9vw,64px)}
 .btn.ghost{background:#fff;color:var(--maroon);border:2px solid var(--gold)}.small{font-size:.92rem!important;line-height:1.6!important;color:#6a3a3a!important;margin-top:12px}
 .wl{position:relative;z-index:6;text-align:center;font:italic 500 clamp(1.3rem,5.5vw,1.9rem)/1.4 "Playfair Display",Georgia,serif;color:#f2cf7a;text-shadow:0 0 14px #ffb30099,0 2px 3px #000a;margin:6px 12px 0;padding-bottom:0}
 body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
-/* envelope luxe — Pichwai-inspired turmeric & antique gold */
-.env .body{background:radial-gradient(circle at 50% 34%,#ffd84a 0,#f0a90c 42%,#cf870a 72%,#a5650a 100%),repeating-linear-gradient(45deg,#0000 0 10px,#ffffff1f 10px 11px);border:3px double #6f430a;box-shadow:0 24px 56px #000d,inset 0 0 0 7px #f7dc92,inset 0 0 0 9px #7a4a08,inset 0 0 46px #8a5a0a99}
-
-.env .pk{background:repeating-radial-gradient(circle at 50% 0,#0000 0 12px,#00000012 13px 14px),linear-gradient(135deg,#ffd45a,#eaa70f 55%,#b9750a)}
-.env .fbg{background:repeating-linear-gradient(60deg,#0000 0 14px,#ffffff14 14px 15px),linear-gradient(#ffdd5e,#f0a90d 82%,#cb8a0a)}
-.env .enm{position:absolute;z-index:6;left:0;right:0;bottom:10%;display:flex;align-items:center;justify-content:center;gap:.18em;padding:0 14px;font-family:"Yatra One","Noto Serif Devanagari",serif;font-weight:400;font-size:clamp(1.05rem,calc(var(--envW)*.088),1.95rem);line-height:1.25;color:#5c0a14;text-shadow:0 1px 0 #ffe9a8,0 2px 8px #0005}
-.env .enm .nm{white-space:nowrap}
-.env .enm i{font-style:normal;font-size:.82em;line-height:1;filter:drop-shadow(0 0 7px #c1121f66)}
+/* premium wedding invitation card — ivory board, gold foil frame, maroon velvet flap */
+.env .body{background:linear-gradient(160deg,#fffdf6,#fdf3d8 52%,#f7e6bb);border:3px double #b8860b;border-radius:12px;box-shadow:0 0 0 4px #6d0a14,0 0 0 6px #e8b84a,0 26px 60px #000d,inset 0 0 0 6px #fffdf5,inset 0 0 0 7px #d9b45a,inset 0 0 40px #d9b45a55}
+.env .pk{background:linear-gradient(#fffcf1,#faf0d0 55%,#f3e2b4);border-radius:10px}
+.env .pk::after{content:"";position:absolute;inset:0;background:linear-gradient(#7a0f1d1a,#0000 18px),linear-gradient(#0000 55%,#6f430a33),repeating-linear-gradient(60deg,#0000 0 16px,#b8860b14 16px 17px)}
+.env .fbg{background:repeating-linear-gradient(60deg,#0000 0 14px,#ffffff16 14px 15px),linear-gradient(#8a1220,#6d0a14 82%,#570910)}
+.flap .flapb .fo{stroke:#c9a13b}
+.flap .flapb .fi{stroke:#e8b84a;opacity:.85}
+.env .enm{position:absolute;z-index:6;left:0;right:0;bottom:9%;display:flex;align-items:center;justify-content:center;gap:.3em;padding:0 12px;font-family:"Yatra One","Tiro Devanagari Hindi","Noto Serif Devanagari",serif;font-weight:700;font-size:clamp(1.15rem,calc(var(--envW)*.106),2.25rem);line-height:1.35;letter-spacing:.02em;text-align:center;color:#56070f;-webkit-text-stroke:.5px #3a040c;text-shadow:0 1px 0 #fffdf5,0 2px 0 #ecc96a,0 3px 0 #d9a83c,0 4px 0 #a5761a,0 5px 0 #6f430a,0 6px 12px #0008,0 0 20px #ffe9a8aa;filter:drop-shadow(0 2px 3px #7a0f1d55)}
+.env .enm .nm{white-space:nowrap;display:inline-flex;align-items:center;gap:.26em}
+.env .enm i{font-style:normal;font-size:.8em;line-height:1;-webkit-text-stroke:0;background:none;color:#c1121f;text-shadow:0 1px 0 #ffd9d9,0 2px 0 #8e0f22,0 3px 5px #0008;filter:none}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.env .enm{color:#56070f;background:none}}
 /* invitation card inside the envelope */
 .letter{overflow:hidden;border:2px solid #c9a13b;border-radius:9px;background:linear-gradient(#fffdf7,#fdf3da);box-shadow:inset 0 0 0 5px #fffdf7,inset 0 0 0 6px #c9a13b,inset 0 0 0 9px #fffdf7,inset 0 0 0 10px #7a0f1d,0 10px 24px #0005}
 .letter .ltx{position:relative;z-index:2;display:grid;justify-items:center;gap:.16em;padding:4px}
@@ -315,7 +315,6 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 <div class="tw top" aria-hidden="true"><img data-i="t" width="1200" height="267" alt="" decoding="async" fetchpriority="high"></div>
 <div class="lt ledset" aria-hidden="true"></div>
 <div class="pillar l" aria-hidden="true"></div><div class="pillar r" aria-hidden="true"></div>
-<div class="lv l ledset" aria-hidden="true"></div><div class="lv l2 ledset" aria-hidden="true"></div><div class="lv r ledset" aria-hidden="true"></div><div class="lv r2 ledset" aria-hidden="true"></div>
 <div id="petals" aria-hidden="true"></div>
 
 <main id="main">
@@ -415,7 +414,7 @@ $('gn').textContent=W.groom;$('bn').textContent=W.bride;
 $('when').textContent=fmtWD(W.weddingDate)+' · '+tfmt(W.ceremonyTime)+' से (IST)';
 $('ph').textContent=W.parentsHeading;$('pn').textContent=W.parents;$('pnote').textContent=W.parentsNote;
 $('fh').textContent=W.familyHeading;$('fam').textContent=W.familyText;
-$('pl').textContent='स्थान — '+W.placeShort;
+$('pl').textContent='ज्योति मैरिज हॉल — '+W.placeShort;
 $('vn').textContent=[W.venueName,W.venueAddress].filter(Boolean).join(', ');
 if(W.mapLink){$('vm').innerHTML='<a class="btn gold" target="_blank" rel="noopener noreferrer" href="'+safeUrl(W.mapLink)+'">📍 Google Maps पर रास्ता देखें</a>';
  const q=encodeURIComponent([W.venueName,W.venueAddress,W.place].filter(Boolean).join(', '));
@@ -448,8 +447,7 @@ const IMG={t:"data:image/webp;base64,UklGRgY4AgBXRUJQVlA4WAoAAAAQAAAArwQACgEAQUx
 const LC=['#ff2d55','#ff9500','#ffd60a','#34c759','#0a84ff','#bf5af2','#ff6bd6'];
 function led(i){const s=document.createElement('i');s.className='led';s.style.cssText=`--c:${LC[i%7]};animation-delay:-${(i*.37%2.6).toFixed(2)}s;animation-duration:${(1.8+(i%5)*.3).toFixed(1)}s`;return s}
 let lw=0,lh=0;
-function buildLeds(){if(innerWidth===lw&&innerHeight===lh)return;lw=innerWidth;lh=innerHeight;const nh=Math.max(12,Math.round(innerHeight/26));document.querySelector('.lt').replaceChildren(...Array.from({length:Math.round(innerWidth/(innerWidth<600?28:32))},(_,i)=>led(i)));
- document.querySelectorAll('.lv').forEach((c,k)=>c.replaceChildren(...Array.from({length:nh},(_,i)=>led(i+k*3))))}
+function buildLeds(){if(innerWidth===lw&&innerHeight===lh)return;lw=innerWidth;lh=innerHeight;document.querySelector('.lt').replaceChildren(...Array.from({length:Math.round(innerWidth/(innerWidth<600?28:32))},(_,i)=>led(i)))}
 buildLeds();addEventListener('resize',()=>{clearTimeout(window._r);window._r=setTimeout(buildLeds,250)});
 // falling blossoms + petals
 if(!reduce){const n=innerWidth<600?8:16,c=['#ff9800','#ffc107','#e0457b','#c1121f','#fff'];
@@ -461,7 +459,7 @@ function buildIntro(box,d){
  const lines=(d.details||[]).filter(Boolean);
  box.innerHTML=(d.name?`<p class="pname">${esc(d.name)}</p>`:'')
   +'<div class="orn" aria-hidden="true">❀</div>'
-  +(lines.length?`<p class="pdet">${lines.map(t=>`<span>${esc(t)}</span>`).join('')}</p>`:'');
+  +(lines.length?`<p class="pdet">${lines.map(t=>{const sep=t.trim()==='एवं';return `<span${sep?' class="ew"':''}>${esc(t)}</span>`}).join('')}</p>`:'');
 }
 buildIntro($('biBody'),W.brideIntro);buildIntro($('giBody'),W.groomIntro);
 // ===== scratch-to-reveal शुभ तिथि, उसके बाद लाइव काउंटडाउन =====
