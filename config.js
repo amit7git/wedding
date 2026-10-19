@@ -42,14 +42,16 @@ window.WEDDING = {
     "assets/couple08.jpeg",
     "assets/couple09.jpeg",
     "assets/couple10.jpeg",
-    "assets/couple11.jpeg"
+    "assets/couple11.jpeg",
+    "assets/couple12.jpeg"
+
   ],
   // ===== कार्यक्रम की तस्वीरें (वैकल्पिक) — assets/ में रखें; खाली/अनुपलब्ध हो तो रंगीन हेडर दिखता रहेगा =====
   eventImgs: {
     tilak:  "assets/tilak.jpg",
     haldi:  "assets/haldi.jpg",
     vivah:  "assets/subh-vivah.jpg",
-    swagat: "assets/couple01.jpeg"
+    swagat: "assets/swagat-samaroh.jpeg"
   },
   help: { number: "919931501506", message: "नमस्ते! मैं आयुष और पूजा के विवाह समारोह के संबंध में सहायता चाहता/चाहती हूँ। कृपया समारोह के समय, स्थान या अन्य जानकारी देने में मदद करें।" },
   upi: { id: "amit@upi", name: "Amit Sahani" },   // कोई राशि तय नहीं — अतिथि स्वयं चुनते हैं
