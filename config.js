@@ -16,7 +16,7 @@ window.WEDDING = {
   brideIntro: {
     name: "आयुष्मती पूजा कुमारी",
     details: [
-      "सुपुत्री: स्वर्गीय अयोध्या साहनी एवं श्रीमती सुनीता देवी",
+      "सुपुत्री: स्व० अयोध्या साहनी एवं श्रीमती सुनीता देवी",
       "ग्राम: प्रधानपुर, रसड़ा ",
       "जिला: बलिया"
     ]
@@ -32,17 +32,24 @@ window.WEDDING = {
 
   // ===== जोड़े की तस्वीरें — assets/ में रखें =====
   gallery: [
-    "assets/couple01.jpg",
-    "assets/couple02.jpg",
-    "assets/couple03.jpg",
-    "assets/couple04.jpg"
+    "assets/couple01.jpeg",
+    "assets/couple02.jpeg",
+    "assets/couple03.jpeg",
+    "assets/couple04.jpeg",
+    "assets/couple05.jpeg",
+    "assets/couple06.jpeg",
+    "assets/couple07.jpeg",
+    "assets/couple08.jpeg",
+    "assets/couple09.jpeg",
+    "assets/couple10.jpeg",
+    "assets/couple11.jpeg"
   ],
   // ===== कार्यक्रम की तस्वीरें (वैकल्पिक) — assets/ में रखें; खाली/अनुपलब्ध हो तो रंगीन हेडर दिखता रहेगा =====
   eventImgs: {
     tilak:  "assets/tilak.jpg",
     haldi:  "assets/haldi.jpg",
     vivah:  "assets/subh-vivah.jpg",
-    swagat: "assets/couple01.jpg"
+    swagat: "assets/couple01.jpeg"
   },
   help: { number: "919931501506", message: "नमस्ते! मैं आयुष और पूजा के विवाह समारोह के संबंध में सहायता चाहता/चाहती हूँ। कृपया समारोह के समय, स्थान या अन्य जानकारी देने में मदद करें।" },
   upi: { id: "amit@upi", name: "Amit Sahani" },   // कोई राशि तय नहीं — अतिथि स्वयं चुनते हैं
