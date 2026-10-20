@@ -252,9 +252,9 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 .intro2 .lead{font-size:clamp(1.1rem,4.6vw,1.35rem);line-height:1.7;color:#7a0f1d;text-align:center;margin:0 auto;max-width:26em}
 .pcards{position:relative;display:grid;grid-auto-rows:1fr;gap:38px;padding:6px 0}
 @media(min-width:720px){.pcards{grid-template-columns:1fr 1fr;gap:48px}}
-.intro2 .pcard,.intro2 .pcard:first-child{padding:32px 22px;border:3px double var(--gold);border-radius:20px;background:#fffdf5;box-shadow:0 14px 40px #0007,inset 0 0 0 6px #fff8e7,inset 0 0 0 7px #d9b45a}
-.intro2 .pcard.bride{border-color:#c2185b;background:linear-gradient(#fffafc,#ffe9f2);box-shadow:0 14px 40px #0007,inset 0 0 0 6px #fff5f8,inset 0 0 0 7px #e8a0b8}
-.intro2 .pcard.groom{border-color:#9a6a00;background:linear-gradient(#fffdf5,#fff3d6);box-shadow:0 14px 40px #0007,inset 0 0 0 6px #fffaf0,inset 0 0 0 7px #d9b45a}
+.intro2 .pcard,.intro2 .pcard:first-child{padding:28px 20px 30px;border:3px double var(--gold);border-radius:22px;background:linear-gradient(165deg,#fffdf6,#fdf4de 70%,#f9ecd0);box-shadow:0 0 0 3px #6d0a14,0 0 0 5px #e8b84a,0 18px 44px #0008,inset 0 0 0 6px #fff8e7,inset 0 0 0 7px #d9b45a;transition:transform .3s ease,box-shadow .3s ease}
+.intro2 .pcard.groom{background:linear-gradient(165deg,#fffdf6,#fdf3d8 68%,#f8e8c0)}
+.intro2 .pcard.bride{background:linear-gradient(165deg,#fffcfa,#fdeef3 68%,#fadfe9);box-shadow:0 0 0 3px #6d0a14,0 0 0 5px #e8a0b8,0 18px 44px #0008,inset 0 0 0 6px #fff5f8,inset 0 0 0 7px #e8a0b8}
 /* romantic glowing heart connector binding the bride & groom cards as a pair */
 .pcjoin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:6;width:44px;height:44px;display:grid;place-items:center;pointer-events:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf7,#ffe4ec 70%,#ffd0dc);box-shadow:0 0 0 3px #fffdf7,0 0 0 5px #e8a0b8,0 0 18px #ff4d6d55,0 4px 12px #0004}
 .pcjoin::before,.pcjoin::after{content:"";position:absolute;left:50%;width:2px;height:14px;background:linear-gradient(#0000,var(--gold),#0000);border-radius:2px}
@@ -267,6 +267,7 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 @keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.14)}35%{transform:scale(1)}55%{transform:scale(1.09)}75%{transform:scale(1)}}
 .intro2 .pcard.bride h2{color:#ad1457}
 .intro2 .pcard.groom h2{color:#7a0f1d}
+.intro2 .pcard h2{margin-bottom:4px;letter-spacing:.02em}
 .intro2 .pcard::before,.intro2 .pcard::after{content:"❁";top:10px;width:auto;height:auto;background:none;box-shadow:none;animation:none;font-size:1.35rem;opacity:.9}
 .intro2 .pcard.bride::before,.intro2 .pcard.bride::after{color:#e0457b}
 .intro2 .pcard.groom::before,.intro2 .pcard.groom::after{color:var(--gold)}
@@ -278,10 +279,25 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 .intro2 .pcard.groom .prole{color:#9a6a00}
 .intro2 .orn{margin:8px 0 10px}
 .intro2 .pcard.bride .orn{color:#e0457b}
-.intro2 .pdet{font-size:1.06rem;line-height:1.85;color:#3a0c14}
-.intro2 .pdet span{display:block;margin:3px 0}
-.intro2 .pdet .ew{font-size:.95rem;color:#9a6a00;letter-spacing:.08em;margin:2px 0}
+.intro2 .pdet{font-size:1.08rem;line-height:1.95;color:#3a0c14}
+.intro2 .pdet span{display:block;margin:4px 0}
+.intro2 .pdet .ew{font-size:.95rem;color:#9a6a00;letter-spacing:.1em;margin:4px 0}
 .intro2 .pdet .cty{font-weight:700;color:#7a0f1d}
+/* premium portrait frame — mandap-arch shape, gold foil + maroon ring */
+.intro2 .pframe{position:relative;width:min(72%,230px);aspect-ratio:4/5;margin:20px auto 14px;border-radius:48% 48% 14px 14px/36% 36% 14px 14px;overflow:visible;border:3px solid #d9a83c;box-shadow:0 0 0 2px #8a1220,0 0 0 4px #e8b84a,0 16px 34px #0009;transition:transform .3s ease,box-shadow .3s ease}
+.intro2 .pcard.bride .pframe{border-color:#e8a0b8;box-shadow:0 0 0 2px #8a1220,0 0 0 4px #f0b6c8,0 16px 34px #0009}
+.intro2 .pframe img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%;border-radius:46% 46% 11px 11px/34% 34% 11px 11px;background:#f3e2b4}
+.intro2 .pframe .pmed{position:absolute;top:-17px;left:50%;transform:translateX(-50%);z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff8e7,#f2d284 75%,#d9a83c);border:2px solid #b8860b;box-shadow:0 3px 10px #0007,0 0 0 2px #fffdf5}
+.intro2 .pcard.bride .pframe .pmed{background:radial-gradient(circle at 35% 30%,#fff5f8,#f8c6d8 75%,#e8a0b8);border-color:#c2185b;box-shadow:0 3px 10px #0007,0 0 0 2px #fffafc}
+.intro2 .pframe .pmed svg{width:22px;height:22px;display:block}
+.intro2 .pframe::before,.intro2 .pframe::after{content:"❀";position:absolute;top:42%;font-size:1rem;line-height:1;color:var(--gold);opacity:.85;pointer-events:none}
+.intro2 .pframe::before{left:-16px}.intro2 .pframe::after{right:-16px}
+.intro2 .pcard.bride .pframe::before,.intro2 .pcard.bride .pframe::after{color:#e0457b}
+.intro2 .pframe.noimg img{display:none}
+.intro2 .pframe.noimg::before{content:none}
+.intro2 .pframe.noimg::after{content:attr(data-fb);top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;font:400 clamp(1.4rem,5.5vw,1.9rem)/1.3 "Yatra One","Noto Serif Devanagari",serif;color:#9a6a00;opacity:.55}
+.intro2 .pcard.bride .pframe.noimg::after{color:#c2185b}
+@media(hover:hover){.intro2 .pcard:hover{transform:translateY(-3px);box-shadow:0 0 0 3px #6d0a14,0 0 0 5px #e8b84a,0 24px 54px #0009,inset 0 0 0 6px #fff8e7,inset 0 0 0 7px #d9b45a}.intro2 .pcard.bride:hover{box-shadow:0 0 0 3px #6d0a14,0 0 0 5px #e8a0b8,0 24px 54px #0009,inset 0 0 0 6px #fff5f8,inset 0 0 0 7px #e8a0b8}.intro2 .pcard:hover .pframe{transform:scale(1.02)}}
 /* gallery */
 .gal[hidden]{display:none}
 .gal .gsub{font-size:1.05rem;color:#9a6a00;margin:-4px 0 16px}
@@ -338,9 +354,13 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 <div class="grid4" id="cd" role="timer" aria-live="off"><div><b id="d">–</b><span>दिन</span></div><div><b id="h">–</b><span>घंटे</span></div><div><b id="m">–</b><span>मिनट</span></div><div><b id="s">–</b><span>सेकंड</span></div></div></div></section>
 <section class="intro2" aria-label="वधू एवं वर परिचय">
       <div class="pcards">
-        <article class="card pcard groom"><h2>वर परिचय</h2><div id="giBody"></div></article>
+        <article class="card pcard groom"><h2>वर परिचय</h2>
+          <div class="pframe" data-fb="वर"><span class="pmed" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 4c1.2 0 2.2.8 2.5 1.9L19 8l1.5-.8c1.5-.8 3.4-.2 4.1 1.3.6 1.3.1 2.9-1.1 3.6L21 13.2l.9.6c1.4.9 1.8 2.7.9 4l-.4.6H9.6l-.4-.6c-.9-1.3-.5-3.1.9-4l.9-.6-2.5-1.1c-1.2-.7-1.7-2.3-1.1-3.6.7-1.5 2.6-2.1 4.1-1.3L13 8l.5-2.1C13.8 4.8 14.8 4 16 4z" fill="#e8b84a" stroke="#9a6a00" stroke-width="1.1"/><path d="M8 21h16v2.2c0 1-.5 1.9-1.4 2.4L16 29l-6.6-3.4c-.9-.5-1.4-1.4-1.4-2.4V21z" fill="#c1121f" stroke="#7a0f1d" stroke-width="1.1"/><circle cx="16" cy="10.5" r="1.4" fill="#c1121f"/></svg></span><img src="assets/groom.jpg" alt="वर आयुष का चित्र" loading="lazy" decoding="async" onerror="this.closest('.pframe').classList.add('noimg');this.remove()"></div>
+          <div id="giBody"></div></article>
         <div class="pcjoin" aria-hidden="true"><span class="hl l"></span><b>♥</b><span class="hl r"></span></div>
-        <article class="card pcard bride"><h2>वधू परिचय</h2><div id="biBody"></div></article>
+        <article class="card pcard bride"><h2>वधू परिचय</h2>
+          <div class="pframe" data-fb="वधू"><span class="pmed" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3c-1.8 0-3.4 1-4.2 2.5L11 8.2l-1.7-1C7.8 6.5 6.5 7.7 6.8 9.3l.5 2.2-2 1.4c-1.1.8-1.3 2.4-.4 3.5L6 18v2.5c0 3.7 3 6.7 6.7 6.7h6.6c3.7 0 6.7-3 6.7-6.7V18l1.1-1.6c.9-1.1.7-2.7-.4-3.5l-2-1.4.5-2.2c.3-1.6-1-2.8-2.5-2.1l-1.7 1-.8-2.7C19.4 4 17.8 3 16 3z" fill="#f8bbd0" stroke="#ad1457" stroke-width="1.1"/><path d="M9.5 24.5c1.6 2 3.9 3.2 6.5 3.2s4.9-1.2 6.5-3.2" fill="none" stroke="#c2185b" stroke-width="1.2" stroke-linecap="round"/><circle cx="16" cy="15.5" r="1.3" fill="#c1121f"/><path d="M12.5 19c1 .9 2.2 1.3 3.5 1.3s2.5-.4 3.5-1.3" fill="none" stroke="#ad1457" stroke-width="1.1" stroke-linecap="round"/><circle cx="16" cy="5.2" r="1.1" fill="#ffd54f" stroke="#c2185b" stroke-width=".8"/></svg></span><img src="assets/bride.jpg" alt="वधू पूजा का चित्र" loading="lazy" decoding="async" onerror="this.closest('.pframe').classList.add('noimg');this.remove()"></div>
+          <div id="biBody"></div></article>
       </div>
     </section>
 <section class="card inv" aria-labelledby="ivh"><h2 id="ivh">सादर आमंत्रण</h2>
