@@ -7,7 +7,7 @@ window.WEDDING = {
   venueName: "", venueAddress: "",   // पुष्टि होने पर भरें
   mapLink: "https://maps.app.goo.gl/qQh5LSsYfrFuSfwdA",
   parentsHeading: "माता-पिता का स्नेह एवं आशीर्वाद",
-  parents: "श्री जगदम्बा साहनी एवं श्रीमती पार्वती देवी",
+  parents: "",
   parentsNote: "आपके स्नेह एवं आशीर्वाद से ही यह मंगल अवसर संभव हुआ है।",
   familyHeading: "निमंत्रण",
   familyText: "समस्त साहनी परिवार की ओर से ।",
