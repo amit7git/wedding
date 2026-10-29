@@ -74,6 +74,7 @@ h2{font-size:1.9rem;color:var(--maroon);margin-bottom:12px}
 .evc .tbd{font-size:.9rem;color:#7a3b14;background:#fff0c7;border:1px dashed #c9a13b;border-radius:20px;padding:2px 12px;display:inline-block}
 .evc a{display:inline-block;margin-top:10px;color:#7a0f1d;border:1px solid var(--gold);background:linear-gradient(#fff3c9,#ffe08a);border-radius:24px;padding:8px 18px;text-decoration:none;min-height:40px;font-weight:700;box-shadow:0 3px 10px #0003}
 .tilak{--bg:linear-gradient(160deg,#c1121f,#6d0a14);--acc:#a5121f;--accD:#6d0a14}
+.mehendi{--bg:linear-gradient(160deg,#7cb342,#2e7d32);--acc:#386b1f;--accD:#1b5e20}
 .haldi{--bg:linear-gradient(160deg,#ffca28,#e86a00);--acc:#a84a00;--accD:#7a3400}
 .vivah{--bg:linear-gradient(160deg,#b3261e,#3d0610);--acc:#8e0f22;--accD:#3d0610}
 .swagat{--bg:linear-gradient(160deg,#1e8e3e,#0f4d1c);--acc:#2e7d32;--accD:#1b5e20}
@@ -407,8 +408,8 @@ $('help').href='https://wa.me/'+W.help.number+'?text='+encodeURIComponent(W.help
 const U=W.upi;$('uid').textContent=U.id;$('pay').href='upi://pay?pa='+encodeURIComponent(U.id)+'&pn='+encodeURIComponent(U.name)+'&cu=INR';
 $('cp').onclick=async()=>{const ok=()=>$('cpm').textContent='UPI ID कॉपी हो गया: '+U.id;try{await navigator.clipboard.writeText(U.id);ok()}catch(e){const t=document.createElement('textarea');t.value=U.id;document.body.appendChild(t);t.select();try{document.execCommand('copy')?ok():$('cpm').textContent='कृपया UPI ID स्वयं कॉपी करें: '+U.id}catch(_){$('cpm').textContent='कृपया UPI ID स्वयं कॉपी करें: '+U.id}t.remove()}};
 $('wl').textContent=W.footerLine;
-const IC={tilak:"🪔",haldi:"🌼",vivah:"💍",swagat:"💐"};
-const EI=Object.assign({tilak:"assets/tilak.jpg",haldi:"assets/haldi.jpg",vivah:"assets/subh-vivah.jpg",swagat:""},W.eventImgs||{});
+const IC={tilak:"🪔",mehendi:"🌿",haldi:"🌼",vivah:"💍",swagat:"💐"};
+const EI=Object.assign({tilak:"assets/tilak.jpg",mehendi:"assets/mehandi.jpg",haldi:"assets/haldi.jpg",vivah:"assets/subh-vivah.jpg",swagat:""},W.eventImgs||{});
 $('ev').innerHTML=W.events.map(e=>`<article class="evc ${esc(e.id)}"><div class="ephoto${EI[e.id]?'':' noph'}">${EI[e.id]?`<img class="eph" src="${safeUrl(EI[e.id])}" alt="${esc(e.name)} — मंगल कार्यक्रम की तस्वीर" loading="lazy" decoding="async" onerror="this.closest('.ephoto').classList.add('noph');this.remove()">`:''}</div>
 <div class="ebody"><div class="ic" aria-hidden="true">${IC[e.id]||"❀"}</div><h3>${esc(e.name)}</h3><div class="ediv" aria-hidden="true">✦</div><p>${esc(e.desc)}</p>
 <p class="dt">${e.date?'📅 '+fmtWD(e.date):'<span class="tbd">तिथि जल्द घोषित</span>'}</p>
