@@ -48,7 +48,7 @@ window.WEDDING = {
   audio: "assets/shehnai.mp3",
   events: [  // date: YYYY-MM-DD, time: 24-hour HH:MM (IST), fromTime: true => "...से"
     { id:"tilak",   name:"तिलक",           date:"2026-11-20", time:"18:00", venue:"", map:"", desc:"वर पक्ष का शुभ तिलक एवं आशीर्वाद समारोह।" },
-    { id:"mehendi", name:"मेहंदी समारोह", date:"2026-11-23", time:"10:00", dateTimeOneLine:true, venue:"", map:"", desc:"मेहंदी की रस्म — गीत, उमंग और स्नेह का मंगल अवसर।" },
+    { id:"mehendi", name:"मेहंदी", date:"2026-11-23", time:"10:00", venue:"", map:"", desc:"मेहंदी की रस्म — गीत, उमंग और स्नेह का मंगल अवसर।" },
     { id:"haldi",   name:"हल्दी",          date:"2026-11-24", time:"10:00", venue:"", map:"", desc:"हल्दी की रस्म — उमंग, गीत और पीले रंगों की मस्ती।" },
     { id:"vivah",  name:"शुभ विवाह",     date:"2026-11-24", time:"19:00", fromTime:true, venue:"", map:"", desc:"मंडप के नीचे सात फेरों का पावन संस्कार।" },
     { id:"swagat", name:"स्वागत समारोह", date:"2026-11-25", time:"11:00", venue:"", map:"", desc:"नव दम्पति को आशीर्वाद देने हेतु स्नेह-भोज।" }
