@@ -34,22 +34,6 @@ window.WEDDING = {
     ]
   },
 
-  // ===== जोड़े की तस्वीरें — assets/ में रखें =====
-  gallery: [
-    "assets/couple01.jpeg",
-    // "assets/couple02.jpeg",
-    // "assets/couple03.jpeg",
-    // "assets/couple04.jpeg",
-    // "assets/couple05.jpeg",
-    // "assets/couple06.jpeg",
-    // "assets/couple07.jpeg",
-    // "assets/couple08.jpeg",
-    // "assets/couple09.jpeg",
-    // "assets/couple10.jpeg",
-    // "assets/couple11.jpeg",
-    // "assets/couple12.jpeg"
-
-  ],
   // ===== कार्यक्रम की तस्वीरें (वैकल्पिक) — assets/ में रखें; खाली/अनुपलब्ध हो तो रंगीन हेडर दिखता रहेगा =====
   eventImgs: {
     tilak:  "assets/tilak.jpg",

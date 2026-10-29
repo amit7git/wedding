@@ -6,10 +6,9 @@ Static site (no build step). Run locally: `cd wedding && python3 -m http.server 
 
 ## Music: save your licensed shehnai file as `wedding/assets/shehnai.mp3` (same folder level as index.html -> assets/). Music starts when the visitor taps the envelope button; the floating button pauses/resumes it.
 
-## Assets: everything lives in `assets/` — `ganesha-icon.png` (Ganesha on the envelope flap + first card), `toran-top.png` (header art), `footer-overlay.png` (footer art), `shehnai.mp3` (music), and the photos below. The gallery section stays hidden until at least one couple photo loads (no broken images).
+## Assets: everything lives in `assets/` — `ganesha-icon.png` (Ganesha on the envelope flap + first card), `toran-top.png` (header art), `footer-overlay.png` (footer art), `shehnai.mp3` (music), and the photos below.
 
 ## Photos (all optional — site looks complete without them):
-- **Couple gallery** → `assets/couple01.jpg … couple04.jpg` (list editable via `gallery` in config.js).
 - **Event card headers** → `assets/tilak.jpg`, `assets/haldi.jpg`, `assets/mehndi.jpg`, `assets/subh-vivah.jpg` (paths editable via `eventImgs` in config.js). There is no reception photo yet — `eventImgs.swagat` is left `""` so the सुंदर रंगीन हेडर shows. A missing/broken photo is removed automatically — never a broken image.
 - Portrait or landscape both work; cards use `object-fit: cover`.
 
