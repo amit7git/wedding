@@ -412,8 +412,8 @@ const IC={tilak:"🪔",mehendi:"🌿",haldi:"🌼",vivah:"💍",swagat:"💐"};
 const EI=Object.assign({tilak:"assets/tilak.jpg",mehendi:"assets/mehandi.jpg",haldi:"assets/haldi.jpg",vivah:"assets/subh-vivah.jpg",swagat:""},W.eventImgs||{});
 $('ev').innerHTML=W.events.map(e=>`<article class="evc ${esc(e.id)}"><div class="ephoto${EI[e.id]?'':' noph'}">${EI[e.id]?`<img class="eph" src="${safeUrl(EI[e.id])}" alt="${esc(e.name)} — मंगल कार्यक्रम की तस्वीर" loading="lazy" decoding="async" onerror="this.closest('.ephoto').classList.add('noph');this.remove()">`:''}</div>
 <div class="ebody"><div class="ic" aria-hidden="true">${IC[e.id]||"❀"}</div><h3>${esc(e.name)}</h3><div class="ediv" aria-hidden="true">✦</div><p>${esc(e.desc)}</p>
-<p class="dt">${e.date?'📅 '+fmtWD(e.date):'<span class="tbd">तिथि जल्द घोषित</span>'}</p>
-<p class="dt">${e.time?'🕘 '+tfmt(e.time)+(e.fromTime?' से':''):'<span class="tbd">समय जल्द घोषित</span>'}</p>
+${e.dateTimeOneLine&&e.date&&e.time?`<p class="dt">📅 ${fmtWD(e.date)} ${tfmt(e.time)}</p>`:`<p class="dt">${e.date?'📅 '+fmtWD(e.date):'<span class="tbd">तिथि जल्द घोषित</span>'}</p>
+<p class="dt">${e.time?'🕘 '+tfmt(e.time)+(e.fromTime?' से':''):'<span class="tbd">समय जल्द घोषित</span>'}</p>`}
 <p>${e.venue?'📍 '+esc(e.venue):''}</p>${e.map?`<a target="_blank" rel="noopener noreferrer" href="${safeUrl(e.map)}">मार्ग देखें</a>`:''}</div></article>`).join('');
 // countdown (Date.now based -> accurate after throttling/refresh)
 const target=new Date(W.weddingDate+'T'+W.ceremonyTime+':00+05:30').getTime();let tmr;
