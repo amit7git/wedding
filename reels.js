@@ -14,11 +14,11 @@
   const $id=id=>document.getElementById(id);
   const viewport=$id("reelsViewport"),track=$id("reelsTrack"),loading=$id("reelsLoading"),empty=$id("reelsEmpty"),ui=$id("reelsUi"),countEl=$id("reelsCount");
   const muteBtn=$id("reelsMute"),likeBtn=$id("reelsLike"),likeCountEl=$id("reelsLikeCount"),commentBtn=$id("reelsComment"),commentCountEl=$id("reelsCommentCount"),shareBtn=$id("reelsShare"),shareCountEl=$id("reelsShareCount"),saveBtn=$id("reelsSave"),saveCountEl=$id("reelsSaveCount");
-  const followBtn=$id("reelsFollow"),pauseOverlay=$id("reelsPause"),progressBar=$id("reelsProgressBar"),navShare=$id("reelsNavShare");
+  const followBtn=$id("reelsFollow"),pauseOverlay=$id("reelsPause"),gate=$id("reelsGate"),gateText=$id("reelsGateText"),progressBar=$id("reelsProgressBar"),navShare=$id("reelsNavShare");
   const sheet=$id("reelsSheet"),sheetClose=$id("reelsSheetClose"),sheetCount=$id("reelsSheetCount"),commentsEl=$id("reelsComments");
   const shareSheet=$id("reelsShareSheet"),shareClose=$id("reelsShareClose"),shareWa=$id("reelsShareWa"),shareCopy=$id("reelsShareCopy"),shareStatus=$id("reelsShareStatus"),closeBtn=$id("reelsClose");
 
-  const required=[viewport,track,loading,empty,ui,countEl,muteBtn,likeBtn,likeCountEl,commentBtn,commentCountEl,shareBtn,shareCountEl,saveBtn,saveCountEl,followBtn,pauseOverlay,progressBar,navShare,sheet,sheetClose,sheetCount,commentsEl,shareSheet,shareClose,shareWa,shareCopy,shareStatus,closeBtn];
+  const required=[viewport,track,loading,empty,ui,countEl,muteBtn,likeBtn,likeCountEl,commentBtn,commentCountEl,shareBtn,shareCountEl,saveBtn,saveCountEl,followBtn,pauseOverlay,gate,gateText,progressBar,navShare,sheet,sheetClose,sheetCount,commentsEl,shareSheet,shareClose,shareWa,shareCopy,shareStatus,closeBtn];
   if(required.some(el=>!el))return;
 
   const ICON={
@@ -39,7 +39,7 @@
   ];
   const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 
-  let slides=[],liked=[],saved=[],active=-1,userPaused=false,muted=true,following=false,scrollRaf=0,resizeRaf=0;
+  let slides=[],liked=[],saved=[],active=-1,userPaused=false,muted=false,blocked=false,following=false,scrollRaf=0,resizeRaf=0;
 
   function videoAt(i){const s=slides[i];return s?s.querySelector("video"):null}
   function format(n){
@@ -48,14 +48,31 @@
     if(n>=1000){const v=n/1000;return (v>=100?v.toFixed(0):v.toFixed(1)).replace(/\.0$/,"")+"K"}
     return String(n);
   }
+  function updateGateText(){
+    const label=muted?"चलाने के लिए टैप करें":"आवाज़ के साथ चलाएँ";
+    gateText.textContent=label;
+    gate.setAttribute("aria-label",label);
+  }
+  function showGate(){
+    blocked=true;
+    updateGateText();
+    gate.hidden=false;
+    pauseOverlay.classList.remove("is-visible");
+    pauseOverlay.setAttribute("aria-hidden","true");
+  }
+  function hideGate(){
+    blocked=false;
+    gate.hidden=true;
+  }
   function paintMute(){
     muteBtn.innerHTML=muted?ICON.muted:ICON.sound;
     muteBtn.setAttribute("aria-pressed",String(!muted));
     muteBtn.setAttribute("aria-label",muted?"आवाज़ चालू करें":"आवाज़ बंद करें");
+    updateGateText();
   }
   function paintPause(){
     const s=slides[active],v=videoAt(active);
-    const show=!!s&&!!v&&v.paused&&s.classList.contains("is-ready")&&!s.classList.contains("is-error");
+    const show=!blocked&&!!s&&!!v&&v.paused&&s.classList.contains("is-ready")&&!s.classList.contains("is-error");
     pauseOverlay.classList.toggle("is-visible",show);
     pauseOverlay.setAttribute("aria-hidden",String(!show));
   }
@@ -71,18 +88,32 @@
     else if(auto&&v.preload!=="auto"){v.preload="auto"}
     return v;
   }
+  function playVideo(v,i){
+    if(!v)return;
+    v.muted=muted;
+    pauseOverlay.classList.remove("is-visible");
+    let p;
+    try{p=v.play()}catch(e){handlePlayFailure(e,i);return}
+    if(p&&p.then){
+      p.then(()=>{if(active===i){hideGate();paintPause()}}).catch(e=>{if(active===i)handlePlayFailure(e,i)});
+    }else if(active===i){
+      hideGate();
+      paintPause();
+    }
+  }
+  function handlePlayFailure(err,i){
+    if(active!==i)return;
+    if(userPaused){paintPause();return}
+    if(err&&(err.name==="NotAllowedError"||err.name==="SecurityError")){showGate();return}
+    paintPause();
+  }
   function playActive(){
     if(document.hidden||userPaused||active<0)return;
     const current=active;
     slides.forEach((_,i)=>{if(i!==current){const o=videoAt(i);if(o&&!o.paused)o.pause()}});
     const v=load(current,true);
     if(!v)return;
-    v.muted=muted;
-    pauseOverlay.classList.remove("is-visible");
-    const p=v.play();
-    if(p&&p.then){
-      p.then(()=>{if(active===current)paintPause()}).catch(()=>{if(active===current)paintPause()});
-    }
+    playVideo(v,current);
   }
   function pauseAll(){slides.forEach((_,i)=>{const v=videoAt(i);if(v&&!v.paused)v.pause()})}
   function updateProgress(v){
@@ -117,6 +148,7 @@
     countEl.textContent=(i+1)+"/"+slides.length;
     updateCounts(i);
     progressBar.style.width="0%";
+    hideGate();
     pauseOverlay.classList.remove("is-visible");
     activateVisible();
   }
@@ -126,10 +158,7 @@
     if(!v)return;
     if(v.paused){
       userPaused=false;
-      v.muted=muted;
-      pauseOverlay.classList.remove("is-visible");
-      const p=v.play();
-      if(p&&p.catch)p.catch(()=>paintPause());
+      playVideo(v,active);
     }else{
       userPaused=true;
       v.pause();
@@ -141,13 +170,13 @@
     const v=slide.querySelector("video");
     if(!v)return;
     v.addEventListener("click",()=>{if(active!==i)setActive(i);else togglePlay()});
-    v.addEventListener("play",()=>{if(i===active)paintPause()});
+    v.addEventListener("play",()=>{if(i===active){hideGate();paintPause()}});
     v.addEventListener("pause",()=>{if(i===active)paintPause()});
     v.addEventListener("playing",()=>{slide.classList.add("is-ready");if(i===active)paintPause()});
     v.addEventListener("loadeddata",()=>slide.classList.add("is-ready"));
     v.addEventListener("canplay",()=>slide.classList.add("is-ready"));
     v.addEventListener("waiting",()=>{if(i===active)slide.classList.remove("is-ready")});
-    v.addEventListener("error",()=>{slide.classList.add("is-error");slide.classList.remove("is-ready");if(i===active){paintPause();progressBar.style.width="0%"}});
+    v.addEventListener("error",()=>{slide.classList.add("is-error");slide.classList.remove("is-ready");if(i===active){hideGate();paintPause();progressBar.style.width="0%"}});
     v.addEventListener("timeupdate",()=>{if(i===active)updateProgress(v)});
     v.addEventListener("loadedmetadata",()=>{if(i===active)updateProgress(v)});
     v.addEventListener("seeking",()=>{if(i===active)updateProgress(v)});
@@ -156,7 +185,7 @@
 
   function build(found){
     loading.hidden=true;
-    if(!found.length){countEl.textContent="0/0";empty.hidden=false;ui.hidden=true;track.hidden=true;pauseOverlay.classList.remove("is-visible");return}
+    if(!found.length){countEl.textContent="0/0";empty.hidden=false;ui.hidden=true;track.hidden=true;hideGate();pauseOverlay.classList.remove("is-visible");return}
     empty.hidden=true;
     track.hidden=false;
     ui.hidden=false;
@@ -165,7 +194,7 @@
       const art=document.createElement("article");
       art.className="reel-slide";
       art.dataset.src=src;
-      art.innerHTML='<video class="reel-video" playsinline loop muted preload="none" aria-label="शादी की झलकी '+(idx+1)+'"></video><div class="reel-load" aria-hidden="true"><span class="reels-spin"></span></div><div class="reel-err" role="status"><span class="reel-err-ic" aria-hidden="true">⚠</span><p>यह वीडियो अभी नहीं चल सका।</p></div>';
+      art.innerHTML='<video class="reel-video" playsinline loop preload="none" aria-label="शादी की झलकी '+(idx+1)+'"></video><div class="reel-load" aria-hidden="true"><span class="reels-spin"></span></div><div class="reel-err" role="status"><span class="reel-err-ic" aria-hidden="true">⚠</span><p>यह वीडियो अभी नहीं चल सका।</p></div>';
       bindSlide(art,idx);
       track.appendChild(art);
       return art;
@@ -226,6 +255,13 @@
   });
 
   muteBtn.addEventListener("click",()=>{muted=!muted;applyMute()});
+  gate.addEventListener("click",()=>{
+    if(active<0)return;
+    const v=videoAt(active);
+    if(!v)return;
+    userPaused=false;
+    playVideo(v,active);
+  });
   likeBtn.addEventListener("click",()=>{
     if(active<0)return;
     const on=!liked[active];

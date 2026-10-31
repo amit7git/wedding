@@ -411,7 +411,7 @@ $('gn').textContent=W.groom;$('bn').textContent=W.bride;
 $('when').textContent=fmtWD(W.weddingDate)+' · '+tfmt(W.ceremonyTime)+' से (IST)';
 $('ph').textContent=W.parentsHeading;$('pn').textContent=W.parents;$('pnote').textContent=W.parentsNote;
 $('fh').textContent=W.familyHeading;$('fam').textContent=W.familyText;
-$('pl').textContent='ज्योति मैरिज हॉल — '+W.placeShort;
+$('pl').textContent='मित्रलोक कॉलोनी, '+W.placeShort;
 $('vn').textContent=[W.venueName,W.venueAddress].filter(Boolean).join(', ');
 if(W.mapLink){$('vm').innerHTML='<a class="btn gold" target="_blank" rel="noopener noreferrer" href="'+safeUrl(W.mapLink)+'">📍 Google Maps पर रास्ता देखें</a>';
  const q=encodeURIComponent([W.venueName,W.venueAddress,W.place].filter(Boolean).join(', '));
