@@ -46,6 +46,10 @@ window.WEDDING = {
   upi: { id: "9931501506@ybl", name: "Aayush Sahani" },   // कोई राशि तय नहीं — अतिथि स्वयं चुनते हैं
   footerLine: "स्नेह, आशीर्वाद एवं आत्मीयता सहित समस्त साहनी परिवार",
   audio: "assets/shehnai.mp3",
+  reelVideos: [
+    "assets/reel01.mp4", "assets/reel02.mp4", "assets/reel03.mp4", "assets/reel04.mp4", "assets/reel05.mp4",
+    "assets/reel06.mp4", "assets/reel07.mp4", "assets/reel08.mp4", "assets/reel09.mp4", "assets/reel10.mp4"
+  ],
   events: [  // date: YYYY-MM-DD, time: 24-hour HH:MM (IST), fromTime: true => "...से"
     { id:"tilak",   name:"तिलक",           date:"2026-11-20", time:"18:00", venue:"", map:"", desc:"वर पक्ष का शुभ तिलक एवं आशीर्वाद समारोह।" },
     { id:"mehendi", name:"मेहंदी", date:"2026-11-23", time:"10:00", venue:"", map:"", desc:"मेहंदी की रस्म — गीत, उमंग और स्नेह का मंगल अवसर।" },

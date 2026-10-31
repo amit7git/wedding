@@ -300,6 +300,52 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 .mapwrap iframe{display:block;width:100%;height:230px;border:0;filter:saturate(1.05)}
 .mapwrap[hidden]{display:none}
 @media(prefers-reduced-motion:reduce){.letter::after{animation:none}.led{animation:none!important;opacity:.9}.fw,.card::before,.card::after{animation:none!important}.foot i,.lt,.tw img{animation:none!important}*,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}.sway{transform:none}#petals{display:none}.pflash{display:none}}
+/* ===== v9: wedding reels ===== */
+.reels{position:relative;isolation:isolate;background:linear-gradient(165deg,#2b0711,#14040a 58%,#24060e);border:3px double var(--gold);border-radius:22px;padding:clamp(20px,4vw,32px) clamp(14px,3.5vw,26px) clamp(16px,3vw,22px);box-shadow:0 18px 48px #000a,inset 0 0 0 6px #ffffff0a,inset 0 0 0 7px #e8b84a55;overflow:hidden}
+.reels::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 0,#e8b84a1f,#0000 62%),radial-gradient(ellipse at 50% 100%,#8e0f2222,#0000 55%)}
+.reels-head{position:relative;text-align:center;margin:0 0 18px}
+.reels-orn{color:#e8b84a;letter-spacing:.5em;font-size:.95rem;margin:0 0 2px;opacity:.9}
+.reels-head h2{color:#ffe6a8;font-size:clamp(1.45rem,5.5vw,2rem);line-height:1.35;margin:0 0 4px;text-shadow:0 2px 12px #000b,0 0 22px #e8b84a33;flex-wrap:wrap;row-gap:2px}
+.reels-head h2::before,.reels-head h2::after{background:linear-gradient(90deg,#0000,#e8b84a);flex-basis:clamp(16px,5vw,52px)}
+.reels-head h2::after{transform:scaleX(-1)}
+.reels-sub{color:#f3d9a0;font-size:clamp(.98rem,3.6vw,1.1rem);letter-spacing:.04em;line-height:1.6;margin:0}
+.reels-shell{position:relative;width:min(100%,420px);width:min(100%,420px,calc(78svh * .5625));margin:0 auto}
+.reels-viewport{position:relative;width:100%;aspect-ratio:9/16;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;border-radius:26px;border:2px solid #e8b84a;background:#0b0306;box-shadow:0 18px 46px #000c,0 0 0 5px #3a0812,0 0 32px #e8b84a26;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;outline:none}
+.reels-viewport::-webkit-scrollbar{display:none}
+.reels-viewport:focus-visible{outline:3px solid #ffe6a8;outline-offset:4px}
+.reels-track{display:flex;flex-direction:column;height:100%}
+.reel-slide{position:relative;flex:0 0 100%;height:100%;padding:8px;background:#0b0306;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+.reel-slide::after{content:"";position:absolute;inset:8px;border-radius:18px;pointer-events:none;background:linear-gradient(#00000088,#0000 20%,#0000 68%,#000000b3);z-index:1}
+.reel-video{display:block;width:100%;height:100%;object-fit:cover;border-radius:18px;background:radial-gradient(circle at 50% 40%,#25060e,#0b0306 70%);cursor:pointer}
+.reel-load{position:absolute;inset:8px;border-radius:18px;display:grid;place-items:center;background:#0b0306e0;z-index:2;opacity:1;visibility:visible;transition:opacity .35s ease,visibility .35s ease}
+.reel-slide.is-ready .reel-load{opacity:0;visibility:hidden;pointer-events:none}
+.reel-slide.is-error .reel-load{display:none}
+.reels-spin{display:block;width:34px;height:34px;border-radius:50%;border:3px solid #ffffff1f;border-top-color:#e8b84a;animation:reelspin .9s linear infinite}
+@keyframes reelspin{to{transform:rotate(360deg)}}
+.reel-err{position:absolute;inset:8px;border-radius:18px;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;background:linear-gradient(160deg,#1c050c,#0b0306);color:#f3d9a0;z-index:2}
+.reel-slide.is-error .reel-err{display:flex}
+.reel-err-ic{font-size:1.8rem;color:#e8b84a}
+.reel-err p{margin:0;font-size:.98rem;line-height:1.6}
+.reels-ui{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:26px;overflow:hidden}
+.reels-count{position:absolute;top:16px;left:16px;padding:5px 12px;border-radius:999px;border:1px solid #e8b84a66;background:#12040ac2;color:#ffe6a8;font-size:.82rem;font-weight:700;letter-spacing:.08em;line-height:1.5;backdrop-filter:blur(6px);box-shadow:0 4px 14px #0007}
+.reels-ctrls{position:absolute;right:14px;bottom:16px;display:flex;flex-direction:column;gap:10px;pointer-events:auto}
+.reels-btn{width:44px;height:44px;padding:0;border-radius:50%;border:1px solid #e8b84a88;background:#1a050bd9;color:#ffe6a8;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px #0009;backdrop-filter:blur(6px);transition:background .2s,transform .2s}
+.reels-btn:hover{background:#2c0814e6}
+.reels-btn:active{transform:scale(.94)}
+.reels-btn svg{width:21px;height:21px;display:block}
+.reels-loading,.reels-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#f3d9a0;z-index:2}
+.reels-loading{background:radial-gradient(circle at 50% 40%,#26070f,#0b0306 72%)}
+.reels-loading span:last-child{font-size:.98rem;letter-spacing:.02em}
+.reels-empty{background:radial-gradient(circle at 50% 40%,#26070f,#0b0306 72%)}
+.reels-empty-ic{font-size:2.2rem;filter:drop-shadow(0 4px 10px #000a)}
+.reels-empty p{margin:0;font-size:1rem;line-height:1.6;color:#f3d9a0}
+.reels-empty .reels-empty-sub{font-size:.9rem;color:#c9a97a}
+.reels-hint{position:relative;text-align:center;color:#e8c88a;font-size:.9rem;letter-spacing:.03em;line-height:1.6;margin:12px auto 0;opacity:.9}
+.reels-hint span{display:inline-block;color:#e8b84a;font-size:1.05rem;margin-right:4px;animation:reelHint 2.4s ease-in-out infinite}
+@keyframes reelHint{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.reels [hidden]{display:none!important}
+@media(max-width:420px){.reels{padding-left:12px;padding-right:12px}.reels-count{top:12px;left:12px}.reels-ctrls{right:10px;bottom:12px}}
+@media(prefers-reduced-motion:reduce){.reels-spin,.reels-hint span{animation:none!important}}
 </style></head><body>
 <div class="bg"></div>
 <div class="tw top" aria-hidden="true"><img data-i="t" width="1200" height="267" alt="" decoding="async" fetchpriority="high"></div>
@@ -343,6 +389,35 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 <p class="iv2 dv">आपकी उपस्थिति हमारे इस खास दिन को और भी यादगार बना देगी। हम आपके साथ इस खुशी के पल को मनाने के लिए उत्सुक हैं। ❤️</p></section>
 <section class="card par" aria-labelledby="ph"><h2 id="ph"></h2><p class="pn dv" id="pn"></p><div class="orn" aria-hidden="true">✦ ❖ ✦</div><p id="pnote"></p></section>
 <section class="evsec" aria-labelledby="eh"><div class="card evhead"><h2 id="eh">मंगल कार्यक्रम</h2><div class="orn" aria-hidden="true" style="letter-spacing:.6em">🥁 🎺 💃</div></div><div class="evstack" id="ev"></div></section>
+<section class="reels" id="reels" aria-labelledby="reelsH">
+ <div class="reels-head">
+  <p class="reels-orn" aria-hidden="true">❀ ✿ ❀</p>
+  <h2 id="reelsH"><span>हमारी शादी की झलकियाँ ❤️</span></h2>
+  <p class="reels-sub">खुशियों के कुछ यादगार पल</p>
+ </div>
+ <div class="reels-shell">
+  <div class="reels-viewport" id="reelsViewport" tabindex="0" role="region" aria-label="शादी की झलकियाँ — वीडियो">
+   <div class="reels-loading" id="reelsLoading" role="status">
+    <span class="reels-spin" aria-hidden="true"></span>
+    <span>यादगार पल तैयार हो रहे हैं…</span>
+   </div>
+   <div class="reels-track" id="reelsTrack" hidden></div>
+   <div class="reels-empty" id="reelsEmpty" hidden>
+    <span class="reels-empty-ic" aria-hidden="true">🎬</span>
+    <p>अभी कोई वीडियो उपलब्ध नहीं है।</p>
+    <p class="reels-empty-sub">जल्द ही खूबसूरत पल यहाँ सजेंगे।</p>
+   </div>
+  </div>
+  <div class="reels-ui" id="reelsUi" hidden>
+   <span class="reels-count" id="reelsCount" aria-live="polite">1 / 1</span>
+   <div class="reels-ctrls">
+    <button class="reels-btn" id="reelsMute" type="button" aria-label="आवाज़ चालू करें" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5l5 7M21.5 8.5l-5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <button class="reels-btn" id="reelsPlay" type="button" aria-label="वीडियो चलाएँ" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+   </div>
+  </div>
+ </div>
+ <p class="reels-hint" id="reelsHint" hidden><span aria-hidden="true">↕</span> स्वाइप या स्क्रॉल करके अगला पल देखें</p>
+</section>
 <section class="card" aria-labelledby="fh"><h2 id="fh"></h2><p class="fam" id="fam"></p></section>
 <section class="card" aria-labelledby="vh"><h2 id="vh">स्थान</h2><p class="dv" style="font-size:1.5rem" id="pl"></p><p id="vn"></p><div class="mapwrap" id="mapwrap" hidden></div><div class="row" id="vm"></div></section>
 <section class="card shg" aria-labelledby="sh"><div class="gift" aria-hidden="true">🎁</div><h2 id="sh">स्नेह भरा शगुन</h2>
@@ -517,4 +592,149 @@ mb.onclick=()=>{if(a.paused)a.play().then(()=>setM(true)).catch(()=>{mb.textCont
 $('openBtn').onclick=()=>{const i=$('intro');$('env').parentNode.classList.add('open');setTimeout(()=>$('env').classList.add('lift'),reduce?0:950);setTimeout(()=>document.body.classList.add('opened'),reduce?0:2600);
  if(a.src&&!mb.disabled)a.play().then(()=>setM(true)).catch(()=>{});
  setTimeout(()=>{i.classList.add('gone');setTimeout(()=>i.remove(),1100)},reduce?200:3600)};
+</script>
+<script>
+(function(){
+ const W=window.WEDDING||{};
+ const DEFAULT_REELS=["assets/reel01.mp4","assets/reel02.mp4","assets/reel03.mp4","assets/reel04.mp4","assets/reel05.mp4","assets/reel06.mp4","assets/reel07.mp4","assets/reel08.mp4","assets/reel09.mp4","assets/reel10.mp4"];
+ const srcs=(Array.isArray(W.reelVideos)?W.reelVideos:DEFAULT_REELS).filter(s=>typeof s==="string"&&s.trim()).slice(0,10).map(s=>s.trim());
+ const section=document.getElementById("reels");
+ const viewport=document.getElementById("reelsViewport");
+ const track=document.getElementById("reelsTrack");
+ const loading=document.getElementById("reelsLoading");
+ const empty=document.getElementById("reelsEmpty");
+ const ui=document.getElementById("reelsUi");
+ const hint=document.getElementById("reelsHint");
+ const countEl=document.getElementById("reelsCount");
+ const muteBtn=document.getElementById("reelsMute");
+ const playBtn=document.getElementById("reelsPlay");
+ if(!section||!viewport||!track||!loading||!empty||!ui||!hint||!countEl||!muteBtn||!playBtn)return;
+ const ICON={
+  muted:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5l5 7M21.5 8.5l-5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  sound:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.2a5 5 0 0 1 0 7.6M19 5.8a8.5 8.5 0 0 1 0 12.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',
+  pause:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>'
+ };
+ const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+ let slides=[],active=-1,sectionVisible=false,userPaused=false,muted=true,scrollRaf=0;
+ function videoAt(i){const s=slides[i];return s?s.querySelector("video"):null}
+ function paintMute(){muteBtn.innerHTML=muted?ICON.muted:ICON.sound;muteBtn.setAttribute("aria-pressed",String(muted));muteBtn.setAttribute("aria-label",muted?"आवाज़ चालू करें":"आवाज़ बंद करें")}
+ function paintPlay(){const v=videoAt(active),paused=!v||v.paused;playBtn.innerHTML=paused?ICON.play:ICON.pause;playBtn.setAttribute("aria-pressed",String(!paused));playBtn.setAttribute("aria-label",paused?"वीडियो चलाएँ":"वीडियो रोकें")}
+ function applyMute(){slides.forEach((_,i)=>{const v=videoAt(i);if(v)v.muted=muted});paintMute()}
+ function load(i,auto){
+  if(i<0||i>=slides.length)return null;
+  const s=slides[i],v=s.querySelector("video");
+  if(!v)return null;
+  if(!v.getAttribute("src")){v.preload=auto?"auto":"metadata";v.src=s.dataset.src;v.load()}
+  else if(auto&&v.preload!=="auto"){v.preload="auto"}
+  return v;
+ }
+ function playActive(){
+  if(!sectionVisible||document.hidden||userPaused)return;
+  slides.forEach((_,i)=>{if(i!==active){const o=videoAt(i);if(o&&!o.paused)o.pause()}});
+  const v=load(active,true);
+  if(!v)return;
+  v.muted=muted;
+  const p=v.play();
+  if(p&&p.catch)p.catch(()=>{paintPlay()});
+ }
+ function pauseAll(){slides.forEach((_,i)=>{const v=videoAt(i);if(v&&!v.paused)v.pause()})}
+ function setActive(i,opts){
+  if(!slides.length)return;
+  i=Math.max(0,Math.min(slides.length-1,i));
+  if(i===active&&!(opts&&opts.force))return;
+  if(i!==active){const prev=videoAt(active);if(prev&&!prev.paused)prev.pause();userPaused=false}
+  active=i;
+  slides.forEach((s,n)=>s.classList.toggle("is-active",n===i));
+  countEl.textContent=(i+1)+" / "+slides.length;
+  if(sectionVisible&&!document.hidden){load(i,true);load(i-1,false);load(i+1,false);if(!userPaused)playActive()}
+  paintPlay();
+ }
+ function togglePlay(){
+  const v=videoAt(active);
+  if(!v)return;
+  if(v.paused){
+   userPaused=false;
+   v.muted=muted;
+   const p=v.play();
+   if(p&&p.catch)p.catch(()=>{});
+  }else{userPaused=true;v.pause()}
+ }
+ function bindSlide(slide,i){
+  const v=slide.querySelector("video");
+  if(!v)return;
+  v.addEventListener("click",()=>{if(active!==i)setActive(i);else togglePlay()});
+  v.addEventListener("play",()=>{if(i===active)paintPlay()});
+  v.addEventListener("pause",()=>{if(i===active)paintPlay()});
+  v.addEventListener("playing",()=>{slide.classList.add("is-ready")});
+  v.addEventListener("loadeddata",()=>{slide.classList.add("is-ready")});
+  v.addEventListener("canplay",()=>{slide.classList.add("is-ready")});
+  v.addEventListener("waiting",()=>{if(i===active)slide.classList.remove("is-ready")});
+  v.addEventListener("error",()=>{slide.classList.add("is-error");slide.classList.remove("is-ready");if(i===active)paintPlay()});
+ }
+ function build(found){
+  loading.hidden=true;
+  if(!found.length){empty.hidden=false;return}
+  track.hidden=false;ui.hidden=false;hint.hidden=found.length<2;
+  track.replaceChildren();
+  slides=found.map((src,idx)=>{
+   const art=document.createElement("article");
+   art.className="reel-slide";
+   art.dataset.src=src;
+   art.innerHTML='<video class="reel-video" playsinline loop muted preload="none" aria-label="शादी की झलकी '+(idx+1)+'"></video><div class="reel-load" aria-hidden="true"><span class="reels-spin"></span></div><div class="reel-err" role="status"><span class="reel-err-ic" aria-hidden="true">⚠</span><p>यह वीडियो अभी नहीं चल सका।</p></div>';
+   bindSlide(art,idx);
+   track.appendChild(art);
+   return art;
+  });
+  applyMute();paintPlay();setActive(0,{force:true});viewport.scrollTop=0;
+ }
+ async function probe(src){
+  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),12000);
+  try{
+   const res=await fetch(src,{method:"HEAD",cache:"no-store",signal:ctl.signal});
+   if(!res.ok)return false;
+   const type=(res.headers.get("content-type")||"").toLowerCase();
+   return !type||type.startsWith("video/")||type.includes("mp4")||type.includes("octet-stream");
+  }catch(e){return false}
+  finally{clearTimeout(timer)}
+ }
+ (async()=>{
+  const ok=await Promise.all(srcs.map(probe));
+  build(srcs.filter((_,i)=>ok[i]));
+ })();
+ viewport.addEventListener("scroll",()=>{
+  if(scrollRaf)return;
+  scrollRaf=requestAnimationFrame(()=>{
+   scrollRaf=0;
+   const h=viewport.clientHeight;
+   if(!h)return;
+   const i=Math.round(viewport.scrollTop/h);
+   if(i!==active)setActive(i);
+  });
+ },{passive:true});
+ viewport.addEventListener("keydown",e=>{
+  if(!slides.length)return;
+  let n=null;
+  if(e.key==="ArrowDown"||e.key==="PageDown"||e.key==="ArrowRight")n=active+1;
+  else if(e.key==="ArrowUp"||e.key==="PageUp"||e.key==="ArrowLeft")n=active-1;
+  else if(e.key===" "){e.preventDefault();togglePlay();return}
+  if(n!==null){e.preventDefault();n=Math.max(0,Math.min(slides.length-1,n));viewport.scrollTo({top:n*viewport.clientHeight,behavior:reduce?"auto":"smooth"})}
+ });
+ muteBtn.addEventListener("click",()=>{muted=!muted;applyMute()});
+ playBtn.addEventListener("click",togglePlay);
+ if("IntersectionObserver" in window){
+  const io=new IntersectionObserver(entries=>{
+   entries.forEach(en=>{
+    sectionVisible=en.isIntersecting&&en.intersectionRatio>0.05;
+    if(sectionVisible){if(slides.length&&!userPaused)playActive()}else pauseAll();
+   });
+  },{threshold:[0,0.05,0.2,0.5]});
+  io.observe(section);
+ }else{sectionVisible=true;if(!userPaused)playActive()}
+ document.addEventListener("visibilitychange",()=>{
+  if(document.hidden)pauseAll();
+  else if(sectionVisible&&!userPaused)playActive();
+ });
+ paintMute();
+})();
 </script></body></html>
