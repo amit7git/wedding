@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238b1e3f'/%3E%3Cpath d='M32 50s-16-9.7-16-22a9 9 0 0 1 16-5.6A9 9 0 0 1 48 28c0 12.3-16 22-16 22z' fill='%23f4d58d'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050205">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Wedding Reels — आयुष ♥ पूजा</title>
+<meta name="description" content="आयुष और पूजा की शादी की खूबसूरत झलकियाँ — Wedding Reels">
+<meta property="og:title" content="Wedding Reels — आयुष ♥ पूजा">
+<meta property="og:description" content="हमारी शादी की खूबसूरत झलकियाँ देखें ❤️">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="reels.css">
+</head>
+<body class="reels-page">
+<div class="reels-bg" aria-hidden="true"></div>
+<main class="reels-app" aria-label="Wedding Reels">
+  <div class="reels-stage">
+    <div class="reels-viewport" id="reelsViewport" tabindex="0" role="region" aria-label="शादी की झलकियाँ — ऊपर या नीचे स्वाइप करें">
+      <div class="reels-loading" id="reelsLoading" role="status">
+        <span class="reels-spin" aria-hidden="true"></span>
+        <span>यादगार पल तैयार हो रहे हैं…</span>
+      </div>
+      <div class="reels-track" id="reelsTrack" hidden></div>
+      <div class="reels-empty" id="reelsEmpty" hidden>
+        <span class="reels-empty-ic" aria-hidden="true">🎬</span>
+        <p>अभी कोई वीडियो उपलब्ध नहीं है।</p>
+        <p class="reels-empty-sub">जल्द ही खूबसूरत पल यहाँ सजेंगे।</p>
+        <a class="reels-empty-link" href="index.html">आमंत्रण पर वापस जाएँ</a>
+      </div>
+    </div>
+
+    <a class="reels-close" id="reelsClose" href="index.html" aria-label="Reels बंद करें" title="बंद करें">✕</a>
+
+    <div class="reels-ui" id="reelsUi" hidden>
+      <header class="reels-topbar">
+        <span class="reels-title">Reels</span>
+        <div class="reels-top-actions">
+          <span class="reels-count" id="reelsCount" aria-live="polite">1/10</span>
+          <button class="reels-mute" id="reelsMute" type="button" aria-label="आवाज़ चालू करें" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5l5 7M21.5 8.5l-5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="reels-rail" role="group" aria-label="Reel interactions">
+        <button class="reels-act" id="reelsLike" type="button" aria-label="पसंद करें" aria-pressed="false">
+          <span class="reels-act-ic">
+            <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5l-1.5-1.4C5.4 14.6 2 11.5 2 7.8 2 4.9 4.3 2.6 7.2 2.6c1.6 0 3.1.7 4.1 2 .9-1.3 2.5-2 4.1-2 2.9 0 5.2 2.3 5.2 5.2 0 3.7-3.4 6.8-8.5 11.3L12 20.5z"/></svg>
+            <span class="reels-burst" aria-hidden="true">❤</span>
+          </span>
+          <span class="reels-act-num" id="reelsLikeCount">93.9K</span>
+        </button>
+
+        <button class="reels-act" id="reelsComment" type="button" aria-label="टिप्पणियाँ देखें">
+          <span class="reels-act-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-3.3-.6L3 21l1.7-4.9A8.2 8.2 0 0 1 3 11.5 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="reels-act-num" id="reelsCommentCount">245</span>
+        </button>
+
+        <button class="reels-act" id="reelsShare" type="button" aria-label="शेयर करें">
+          <span class="reels-act-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="reels-act-num" id="reelsShareCount">1.2K</span>
+        </button>
+
+        <button class="reels-act" id="reelsSave" type="button" aria-label="सेव करें" aria-pressed="false">
+          <span class="reels-act-ic">
+            <svg class="bookmark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="reels-act-num" id="reelsSaveCount">3.4K</span>
+        </button>
+      </div>
+
+      <div class="reels-info">
+        <div class="reels-profile-row">
+          <span class="reels-avatar" aria-hidden="true"><span>A</span><i>♥</i><span>P</span></span>
+          <span class="reels-username">aayush.puja</span>
+          <button class="reels-follow" id="reelsFollow" type="button" aria-pressed="false">Follow</button>
+          <span class="reels-more" aria-hidden="true">•••</span>
+        </div>
+        <p class="reels-caption">Aayush ❤️ Puja | A journey of love, laughter and forever...</p>
+        <p class="reels-audio"><span aria-hidden="true">♫</span> Aayush ♥ Puja · Wedding Highlights</p>
+      </div>
+
+      <div class="reels-pause" id="reelsPause" aria-hidden="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      </div>
+
+      <div class="reels-progress" aria-hidden="true"><span id="reelsProgressBar"></span></div>
+
+      <nav class="reels-nav" aria-label="Reels navigation">
+        <a class="reels-nav-item" href="index.html" aria-label="Home">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </a>
+        <span class="reels-nav-item is-active" aria-current="page" aria-label="Reels">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.3 8.4v7.2l6.1-3.6z" fill="currentColor"/><path d="M7.2 3.7l2 3M13 3.7l2 3M18.4 3.7l2 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <button class="reels-nav-item" id="reelsNavShare" type="button" aria-label="Share Reel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="reels-nav-item is-static" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16.2 16.2L21 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="reels-nav-item is-static" aria-hidden="true">
+          <span class="reels-nav-avatar"><span>A</span><i>♥</i><span>P</span></span>
+        </span>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<div class="reels-sheet" id="reelsSheet" hidden>
+  <div class="reels-sheet-backdrop" data-reels-close="comments"></div>
+  <div class="reels-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="reelsSheetTitle">
+    <div class="reels-sheet-handle" aria-hidden="true"></div>
+    <div class="reels-sheet-head"><h3 id="reelsSheetTitle">टिप्पणियाँ <span id="reelsSheetCount">245</span></h3><button class="reels-sheet-close" id="reelsSheetClose" type="button" aria-label="बंद करें">✕</button></div>
+    <div class="reels-comments" id="reelsComments"></div>
+  </div>
+</div>
+
+<div class="reels-sheet" id="reelsShareSheet" hidden>
+  <div class="reels-sheet-backdrop" data-reels-close="share"></div>
+  <div class="reels-sheet-panel reels-share-panel" role="dialog" aria-modal="true" aria-labelledby="reelsShareTitle">
+    <div class="reels-sheet-handle" aria-hidden="true"></div>
+    <div class="reels-sheet-head"><h3 id="reelsShareTitle">शेयर करें</h3><button class="reels-sheet-close" id="reelsShareClose" type="button" aria-label="बंद करें">✕</button></div>
+    <div class="reels-share-body">
+      <a class="reels-share-btn wa" id="reelsShareWa" target="_blank" rel="noopener noreferrer">WhatsApp पर शेयर करें</a>
+      <button class="reels-share-btn copy" id="reelsShareCopy" type="button">लिंक कॉपी करें</button>
+      <p class="reels-share-status" id="reelsShareStatus" role="status"></p>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="reels.js"></script>
+</body>
+</html>

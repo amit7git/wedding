@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html lang="hi"><head><meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238b1e3f'/%3E%3Cpath d='M32 50s-16-9.7-16-22a9 9 0 0 1 16-5.6A9 9 0 0 1 48 28c0 12.3-16 22-16 22z' fill='%23f4d58d'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>आयुष ♥ पूजा — शुभ विवाह</title>
@@ -190,6 +191,15 @@ body:not(.opened) .ledset{opacity:0;visibility:hidden}.ledset{transition:opacity
 main > .card:first-child{padding-top:clamp(40px,9vw,64px)}
 #help{position:fixed;right:calc(var(--pw) + 12px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));z-index:21;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 18px #0008,0 0 0 3px #fff8;cursor:pointer}
 #help:focus-visible{outline:3px solid #fff}
+#reelsBtn{position:fixed;right:calc(var(--pw) + 12px + env(safe-area-inset-right));bottom:calc(16px + 58px + 12px + env(safe-area-inset-bottom));z-index:21;width:58px;height:58px;border-radius:50%;background:linear-gradient(145deg,#8e1426,#5c0a14);display:grid;place-items:center;color:#ffe6a8;border:2px solid var(--glow);box-shadow:0 6px 18px #0008,0 0 0 3px #fff8;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
+#reelsBtn:hover{background:linear-gradient(145deg,#a3192e,#6d0a14)}
+#reelsBtn:active{transform:scale(.96)}
+#reelsBtn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#reelsBtn svg{width:29px;height:29px;display:block;filter:drop-shadow(0 2px 4px #0007)}
+#reelsBtn .fab-tip{position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;background:#fff8e7;color:#5c0a14;border:1px solid var(--gold);border-radius:999px;padding:5px 11px;font:700 .76rem Mukta,sans-serif;box-shadow:0 4px 12px #0006;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,transform .18s,visibility .18s}
+#reelsBtn:hover .fab-tip,#reelsBtn:focus-visible .fab-tip{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+@media(max-width:520px){#reelsBtn .fab-tip{opacity:1;visibility:visible;transform:translateY(-50%);font-size:.68rem;padding:4px 9px}}
+@media(max-height:620px){#reelsBtn{width:50px;height:50px;bottom:calc(16px + 58px + 10px + env(safe-area-inset-bottom))}#reelsBtn svg{width:25px;height:25px}}
 .par{background:linear-gradient(#6d0f1c,#4a0812);color:var(--ivo);border-color:var(--glow)}
 .par h2,.par .pn{color:var(--glow)}.par p{color:var(--ivo)}.par .pn{font-size:clamp(1.35rem,6vw,1.9rem);line-height:1.6;margin:8px 0}.par .orn{color:var(--glow)}
 .fam{font-size:1.2rem;line-height:2}
@@ -300,52 +310,6 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 .mapwrap iframe{display:block;width:100%;height:230px;border:0;filter:saturate(1.05)}
 .mapwrap[hidden]{display:none}
 @media(prefers-reduced-motion:reduce){.letter::after{animation:none}.led{animation:none!important;opacity:.9}.fw,.card::before,.card::after{animation:none!important}.foot i,.lt,.tw img{animation:none!important}*,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}.sway{transform:none}#petals{display:none}.pflash{display:none}}
-/* ===== v9: wedding reels ===== */
-.reels{position:relative;isolation:isolate;background:linear-gradient(165deg,#2b0711,#14040a 58%,#24060e);border:3px double var(--gold);border-radius:22px;padding:clamp(20px,4vw,32px) clamp(14px,3.5vw,26px) clamp(16px,3vw,22px);box-shadow:0 18px 48px #000a,inset 0 0 0 6px #ffffff0a,inset 0 0 0 7px #e8b84a55;overflow:hidden}
-.reels::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 0,#e8b84a1f,#0000 62%),radial-gradient(ellipse at 50% 100%,#8e0f2222,#0000 55%)}
-.reels-head{position:relative;text-align:center;margin:0 0 18px}
-.reels-orn{color:#e8b84a;letter-spacing:.5em;font-size:.95rem;margin:0 0 2px;opacity:.9}
-.reels-head h2{color:#ffe6a8;font-size:clamp(1.45rem,5.5vw,2rem);line-height:1.35;margin:0 0 4px;text-shadow:0 2px 12px #000b,0 0 22px #e8b84a33;flex-wrap:wrap;row-gap:2px}
-.reels-head h2::before,.reels-head h2::after{background:linear-gradient(90deg,#0000,#e8b84a);flex-basis:clamp(16px,5vw,52px)}
-.reels-head h2::after{transform:scaleX(-1)}
-.reels-sub{color:#f3d9a0;font-size:clamp(.98rem,3.6vw,1.1rem);letter-spacing:.04em;line-height:1.6;margin:0}
-.reels-shell{position:relative;width:min(100%,420px);width:min(100%,420px,calc(78svh * .5625));margin:0 auto}
-.reels-viewport{position:relative;width:100%;aspect-ratio:9/16;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;border-radius:26px;border:2px solid #e8b84a;background:#0b0306;box-shadow:0 18px 46px #000c,0 0 0 5px #3a0812,0 0 32px #e8b84a26;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;outline:none}
-.reels-viewport::-webkit-scrollbar{display:none}
-.reels-viewport:focus-visible{outline:3px solid #ffe6a8;outline-offset:4px}
-.reels-track{display:flex;flex-direction:column;height:100%}
-.reel-slide{position:relative;flex:0 0 100%;height:100%;padding:8px;background:#0b0306;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
-.reel-slide::after{content:"";position:absolute;inset:8px;border-radius:18px;pointer-events:none;background:linear-gradient(#00000088,#0000 20%,#0000 68%,#000000b3);z-index:1}
-.reel-video{display:block;width:100%;height:100%;object-fit:cover;border-radius:18px;background:radial-gradient(circle at 50% 40%,#25060e,#0b0306 70%);cursor:pointer}
-.reel-load{position:absolute;inset:8px;border-radius:18px;display:grid;place-items:center;background:#0b0306e0;z-index:2;opacity:1;visibility:visible;transition:opacity .35s ease,visibility .35s ease}
-.reel-slide.is-ready .reel-load{opacity:0;visibility:hidden;pointer-events:none}
-.reel-slide.is-error .reel-load{display:none}
-.reels-spin{display:block;width:34px;height:34px;border-radius:50%;border:3px solid #ffffff1f;border-top-color:#e8b84a;animation:reelspin .9s linear infinite}
-@keyframes reelspin{to{transform:rotate(360deg)}}
-.reel-err{position:absolute;inset:8px;border-radius:18px;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;background:linear-gradient(160deg,#1c050c,#0b0306);color:#f3d9a0;z-index:2}
-.reel-slide.is-error .reel-err{display:flex}
-.reel-err-ic{font-size:1.8rem;color:#e8b84a}
-.reel-err p{margin:0;font-size:.98rem;line-height:1.6}
-.reels-ui{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:26px;overflow:hidden}
-.reels-count{position:absolute;top:16px;left:16px;padding:5px 12px;border-radius:999px;border:1px solid #e8b84a66;background:#12040ac2;color:#ffe6a8;font-size:.82rem;font-weight:700;letter-spacing:.08em;line-height:1.5;backdrop-filter:blur(6px);box-shadow:0 4px 14px #0007}
-.reels-ctrls{position:absolute;right:14px;bottom:16px;display:flex;flex-direction:column;gap:10px;pointer-events:auto}
-.reels-btn{width:44px;height:44px;padding:0;border-radius:50%;border:1px solid #e8b84a88;background:#1a050bd9;color:#ffe6a8;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px #0009;backdrop-filter:blur(6px);transition:background .2s,transform .2s}
-.reels-btn:hover{background:#2c0814e6}
-.reels-btn:active{transform:scale(.94)}
-.reels-btn svg{width:21px;height:21px;display:block}
-.reels-loading,.reels-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#f3d9a0;z-index:2}
-.reels-loading{background:radial-gradient(circle at 50% 40%,#26070f,#0b0306 72%)}
-.reels-loading span:last-child{font-size:.98rem;letter-spacing:.02em}
-.reels-empty{background:radial-gradient(circle at 50% 40%,#26070f,#0b0306 72%)}
-.reels-empty-ic{font-size:2.2rem;filter:drop-shadow(0 4px 10px #000a)}
-.reels-empty p{margin:0;font-size:1rem;line-height:1.6;color:#f3d9a0}
-.reels-empty .reels-empty-sub{font-size:.9rem;color:#c9a97a}
-.reels-hint{position:relative;text-align:center;color:#e8c88a;font-size:.9rem;letter-spacing:.03em;line-height:1.6;margin:12px auto 0;opacity:.9}
-.reels-hint span{display:inline-block;color:#e8b84a;font-size:1.05rem;margin-right:4px;animation:reelHint 2.4s ease-in-out infinite}
-@keyframes reelHint{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.reels [hidden]{display:none!important}
-@media(max-width:420px){.reels{padding-left:12px;padding-right:12px}.reels-count{top:12px;left:12px}.reels-ctrls{right:10px;bottom:12px}}
-@media(prefers-reduced-motion:reduce){.reels-spin,.reels-hint span{animation:none!important}}
 </style></head><body>
 <div class="bg"></div>
 <div class="tw top" aria-hidden="true"><img data-i="t" width="1200" height="267" alt="" decoding="async" fetchpriority="high"></div>
@@ -389,35 +353,6 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 <p class="iv2 dv">आपकी उपस्थिति हमारे इस खास दिन को और भी यादगार बना देगी। हम आपके साथ इस खुशी के पल को मनाने के लिए उत्सुक हैं। ❤️</p></section>
 <section class="card par" aria-labelledby="ph"><h2 id="ph"></h2><p class="pn dv" id="pn"></p><div class="orn" aria-hidden="true">✦ ❖ ✦</div><p id="pnote"></p></section>
 <section class="evsec" aria-labelledby="eh"><div class="card evhead"><h2 id="eh">मंगल कार्यक्रम</h2><div class="orn" aria-hidden="true" style="letter-spacing:.6em">🥁 🎺 💃</div></div><div class="evstack" id="ev"></div></section>
-<section class="reels" id="reels" aria-labelledby="reelsH">
- <div class="reels-head">
-  <p class="reels-orn" aria-hidden="true">❀ ✿ ❀</p>
-  <h2 id="reelsH"><span>हमारी शादी की झलकियाँ ❤️</span></h2>
-  <p class="reels-sub">खुशियों के कुछ यादगार पल</p>
- </div>
- <div class="reels-shell">
-  <div class="reels-viewport" id="reelsViewport" tabindex="0" role="region" aria-label="शादी की झलकियाँ — वीडियो">
-   <div class="reels-loading" id="reelsLoading" role="status">
-    <span class="reels-spin" aria-hidden="true"></span>
-    <span>यादगार पल तैयार हो रहे हैं…</span>
-   </div>
-   <div class="reels-track" id="reelsTrack" hidden></div>
-   <div class="reels-empty" id="reelsEmpty" hidden>
-    <span class="reels-empty-ic" aria-hidden="true">🎬</span>
-    <p>अभी कोई वीडियो उपलब्ध नहीं है।</p>
-    <p class="reels-empty-sub">जल्द ही खूबसूरत पल यहाँ सजेंगे।</p>
-   </div>
-  </div>
-  <div class="reels-ui" id="reelsUi" hidden>
-   <span class="reels-count" id="reelsCount" aria-live="polite">1 / 1</span>
-   <div class="reels-ctrls">
-    <button class="reels-btn" id="reelsMute" type="button" aria-label="आवाज़ चालू करें" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5l5 7M21.5 8.5l-5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-    <button class="reels-btn" id="reelsPlay" type="button" aria-label="वीडियो चलाएँ" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
-   </div>
-  </div>
- </div>
- <p class="reels-hint" id="reelsHint" hidden><span aria-hidden="true">↕</span> स्वाइप या स्क्रॉल करके अगला पल देखें</p>
-</section>
 <section class="card" aria-labelledby="fh"><h2 id="fh"></h2><p class="fam" id="fam"></p></section>
 <section class="card" aria-labelledby="vh"><h2 id="vh">स्थान</h2><p class="dv" style="font-size:1.5rem" id="pl"></p><p id="vn"></p><div class="mapwrap" id="mapwrap" hidden></div><div class="row" id="vm"></div></section>
 <section class="card shg" aria-labelledby="sh"><div class="gift" aria-hidden="true">🎁</div><h2 id="sh">स्नेह भरा शगुन</h2>
@@ -436,6 +371,10 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 
 <button id="music" type="button" aria-pressed="false">🎵 शहनाई चलाएँ</button>
 <a id="help" target="_blank" rel="noopener noreferrer" aria-label="Wedding Help on WhatsApp" title="Wedding Help on WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-1.9c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.7 13-12.8S23.200 3 16 3zm0 23.300c-2.100 0-4-.6-5.700-1.600l-.4-.2-3.900 1.100 1.100-3.800-.3-.4A10.300 10.300 0 0 1 5.600 16C5.600 10.300 10.300 5.700 16 5.700S26.400 10.300 26.400 16 21.700 26.300 16 26.300zm5.700-7.700c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100c-1.900-.9-3.100-1.700-4.300-3.800-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400s-1.100 1.100-1.100 2.600 1.100 3 1.300 3.200 2.200 3.400 5.400 4.700c2 .8 2.800.9 3.800.7.600-.1 1.900-.8 2.200-1.500s.3-1.400.2-1.500-.3-.2-.6-.4z"/></svg></a>
+<a id="reelsBtn" href="reels.html" aria-label="Wedding Reels" title="Wedding Reels">
+<span class="fab-tip">Wedding Reels</span>
+<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4.5" y="5.5" width="23" height="21" rx="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 11.5v9l7.5-4.5z" fill="currentColor"/><path d="M10 2.8l2.2 3.2M22 2.8l-2.2 3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</a>
 <audio id="aud" loop preload="none"></audio>
 
 <div id="intro" role="dialog" aria-label="निमंत्रण">
@@ -455,8 +394,7 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}
 <div class="flap"><span class="fbg"></span><svg class="flapb" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><path class="fo" d="M0 0 H100 L50 60 Z"/><path class="fi" d="M9 6 H91 L50 50 Z"/></svg></div>
 <p class="enm" aria-hidden="true"><span class="nm"><i class="h2">❤️</i>आयुष संग पूजा</span> <i>❤️</i> </p>
 <div class="seal dv" aria-hidden="true">ॐ</div></div>
-<button id="openBtn" type="button">शादी का निमंत्रण खोलें</button></div></div>
-
+<button id="openBtn" type="button">शादी का निमंत्रण खोलें</button>
 <script src="config.js"></script>
 <script>
 const W=window.WEDDING,$=id=>document.getElementById(id);
@@ -593,148 +531,4 @@ $('openBtn').onclick=()=>{const i=$('intro');$('env').parentNode.classList.add('
  if(a.src&&!mb.disabled)a.play().then(()=>setM(true)).catch(()=>{});
  setTimeout(()=>{i.classList.add('gone');setTimeout(()=>i.remove(),1100)},reduce?200:3600)};
 </script>
-<script>
-(function(){
- const W=window.WEDDING||{};
- const DEFAULT_REELS=["assets/reel01.mp4","assets/reel02.mp4","assets/reel03.mp4","assets/reel04.mp4","assets/reel05.mp4","assets/reel06.mp4","assets/reel07.mp4","assets/reel08.mp4","assets/reel09.mp4","assets/reel10.mp4"];
- const srcs=(Array.isArray(W.reelVideos)?W.reelVideos:DEFAULT_REELS).filter(s=>typeof s==="string"&&s.trim()).slice(0,10).map(s=>s.trim());
- const section=document.getElementById("reels");
- const viewport=document.getElementById("reelsViewport");
- const track=document.getElementById("reelsTrack");
- const loading=document.getElementById("reelsLoading");
- const empty=document.getElementById("reelsEmpty");
- const ui=document.getElementById("reelsUi");
- const hint=document.getElementById("reelsHint");
- const countEl=document.getElementById("reelsCount");
- const muteBtn=document.getElementById("reelsMute");
- const playBtn=document.getElementById("reelsPlay");
- if(!section||!viewport||!track||!loading||!empty||!ui||!hint||!countEl||!muteBtn||!playBtn)return;
- const ICON={
-  muted:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.5l5 7M21.5 8.5l-5 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-  sound:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 8.2a5 5 0 0 1 0 7.6M19 5.8a8.5 8.5 0 0 1 0 12.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
-  play:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',
-  pause:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>'
- };
- const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
- let slides=[],active=-1,sectionVisible=false,userPaused=false,muted=true,scrollRaf=0;
- function videoAt(i){const s=slides[i];return s?s.querySelector("video"):null}
- function paintMute(){muteBtn.innerHTML=muted?ICON.muted:ICON.sound;muteBtn.setAttribute("aria-pressed",String(muted));muteBtn.setAttribute("aria-label",muted?"आवाज़ चालू करें":"आवाज़ बंद करें")}
- function paintPlay(){const v=videoAt(active),paused=!v||v.paused;playBtn.innerHTML=paused?ICON.play:ICON.pause;playBtn.setAttribute("aria-pressed",String(!paused));playBtn.setAttribute("aria-label",paused?"वीडियो चलाएँ":"वीडियो रोकें")}
- function applyMute(){slides.forEach((_,i)=>{const v=videoAt(i);if(v)v.muted=muted});paintMute()}
- function load(i,auto){
-  if(i<0||i>=slides.length)return null;
-  const s=slides[i],v=s.querySelector("video");
-  if(!v)return null;
-  if(!v.getAttribute("src")){v.preload=auto?"auto":"metadata";v.src=s.dataset.src;v.load()}
-  else if(auto&&v.preload!=="auto"){v.preload="auto"}
-  return v;
- }
- function playActive(){
-  if(!sectionVisible||document.hidden||userPaused)return;
-  slides.forEach((_,i)=>{if(i!==active){const o=videoAt(i);if(o&&!o.paused)o.pause()}});
-  const v=load(active,true);
-  if(!v)return;
-  v.muted=muted;
-  const p=v.play();
-  if(p&&p.catch)p.catch(()=>{paintPlay()});
- }
- function pauseAll(){slides.forEach((_,i)=>{const v=videoAt(i);if(v&&!v.paused)v.pause()})}
- function setActive(i,opts){
-  if(!slides.length)return;
-  i=Math.max(0,Math.min(slides.length-1,i));
-  if(i===active&&!(opts&&opts.force))return;
-  if(i!==active){const prev=videoAt(active);if(prev&&!prev.paused)prev.pause();userPaused=false}
-  active=i;
-  slides.forEach((s,n)=>s.classList.toggle("is-active",n===i));
-  countEl.textContent=(i+1)+" / "+slides.length;
-  if(sectionVisible&&!document.hidden){load(i,true);load(i-1,false);load(i+1,false);if(!userPaused)playActive()}
-  paintPlay();
- }
- function togglePlay(){
-  const v=videoAt(active);
-  if(!v)return;
-  if(v.paused){
-   userPaused=false;
-   v.muted=muted;
-   const p=v.play();
-   if(p&&p.catch)p.catch(()=>{});
-  }else{userPaused=true;v.pause()}
- }
- function bindSlide(slide,i){
-  const v=slide.querySelector("video");
-  if(!v)return;
-  v.addEventListener("click",()=>{if(active!==i)setActive(i);else togglePlay()});
-  v.addEventListener("play",()=>{if(i===active)paintPlay()});
-  v.addEventListener("pause",()=>{if(i===active)paintPlay()});
-  v.addEventListener("playing",()=>{slide.classList.add("is-ready")});
-  v.addEventListener("loadeddata",()=>{slide.classList.add("is-ready")});
-  v.addEventListener("canplay",()=>{slide.classList.add("is-ready")});
-  v.addEventListener("waiting",()=>{if(i===active)slide.classList.remove("is-ready")});
-  v.addEventListener("error",()=>{slide.classList.add("is-error");slide.classList.remove("is-ready");if(i===active)paintPlay()});
- }
- function build(found){
-  loading.hidden=true;
-  if(!found.length){empty.hidden=false;return}
-  track.hidden=false;ui.hidden=false;hint.hidden=found.length<2;
-  track.replaceChildren();
-  slides=found.map((src,idx)=>{
-   const art=document.createElement("article");
-   art.className="reel-slide";
-   art.dataset.src=src;
-   art.innerHTML='<video class="reel-video" playsinline loop muted preload="none" aria-label="शादी की झलकी '+(idx+1)+'"></video><div class="reel-load" aria-hidden="true"><span class="reels-spin"></span></div><div class="reel-err" role="status"><span class="reel-err-ic" aria-hidden="true">⚠</span><p>यह वीडियो अभी नहीं चल सका।</p></div>';
-   bindSlide(art,idx);
-   track.appendChild(art);
-   return art;
-  });
-  applyMute();paintPlay();setActive(0,{force:true});viewport.scrollTop=0;
- }
- async function probe(src){
-  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),12000);
-  try{
-   const res=await fetch(src,{method:"HEAD",cache:"no-store",signal:ctl.signal});
-   if(!res.ok)return false;
-   const type=(res.headers.get("content-type")||"").toLowerCase();
-   return !type||type.startsWith("video/")||type.includes("mp4")||type.includes("octet-stream");
-  }catch(e){return false}
-  finally{clearTimeout(timer)}
- }
- (async()=>{
-  const ok=await Promise.all(srcs.map(probe));
-  build(srcs.filter((_,i)=>ok[i]));
- })();
- viewport.addEventListener("scroll",()=>{
-  if(scrollRaf)return;
-  scrollRaf=requestAnimationFrame(()=>{
-   scrollRaf=0;
-   const h=viewport.clientHeight;
-   if(!h)return;
-   const i=Math.round(viewport.scrollTop/h);
-   if(i!==active)setActive(i);
-  });
- },{passive:true});
- viewport.addEventListener("keydown",e=>{
-  if(!slides.length)return;
-  let n=null;
-  if(e.key==="ArrowDown"||e.key==="PageDown"||e.key==="ArrowRight")n=active+1;
-  else if(e.key==="ArrowUp"||e.key==="PageUp"||e.key==="ArrowLeft")n=active-1;
-  else if(e.key===" "){e.preventDefault();togglePlay();return}
-  if(n!==null){e.preventDefault();n=Math.max(0,Math.min(slides.length-1,n));viewport.scrollTo({top:n*viewport.clientHeight,behavior:reduce?"auto":"smooth"})}
- });
- muteBtn.addEventListener("click",()=>{muted=!muted;applyMute()});
- playBtn.addEventListener("click",togglePlay);
- if("IntersectionObserver" in window){
-  const io=new IntersectionObserver(entries=>{
-   entries.forEach(en=>{
-    sectionVisible=en.isIntersecting&&en.intersectionRatio>0.05;
-    if(sectionVisible){if(slides.length&&!userPaused)playActive()}else pauseAll();
-   });
-  },{threshold:[0,0.05,0.2,0.5]});
-  io.observe(section);
- }else{sectionVisible=true;if(!userPaused)playActive()}
- document.addEventListener("visibilitychange",()=>{
-  if(document.hidden)pauseAll();
-  else if(sectionVisible&&!userPaused)playActive();
- });
- paintMute();
-})();
-</script></body></html>
+</body></html>
